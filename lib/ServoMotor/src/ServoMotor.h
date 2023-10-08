@@ -19,8 +19,8 @@ private:
   uint8_t pin;
   Servo _servo;
   uint8_t angleReset = 90;
-  uint8_t angleFull = 20;
-  uint8_t angleHalf = 10;
+  uint8_t angleFull = 25;
+  uint8_t angleHalf = 15;
 };
 
 #endif
