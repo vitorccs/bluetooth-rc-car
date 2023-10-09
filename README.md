@@ -1,5 +1,5 @@
 # Bluetooth RC Car
-Bluetooth Remote Controlled Car using Arduino Nano board v3. 
+Bluetooth Remote Controlled Car using Arduino Nano v3 board. 
 
 <img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/60031705-4a53-4c39-bdf1-05cc43f558ee" width="400">
 
@@ -11,7 +11,7 @@ Bluetooth Remote Controlled Car using Arduino Nano board v3.
 
 This is a [Platform IO IDE](https://platformio.org/platformio-ide) project coded in C++. 
 
-The car is controlled by a [free Android App](https://play.google.com/store/apps/details?id=braulio.calle.bluetoothRCcontroller&hl=en) (Bluettoh connection will appear as "HC-05"):
+The car is controlled by a [free Android App](https://play.google.com/store/apps/details?id=braulio.calle.bluetoothRCcontroller&hl=en) (Bluetooth connection will appear as "HC-05"):
 
 <img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/2e48be50-9498-443f-bc25-0eb4d572a016" width="300">
 
@@ -23,16 +23,16 @@ Note: the Electrolytic Capacitor is used to prevent Arduino Nano from rebooting 
 * 04 - Wheels
 * 01 - Arduino Nano v3
 * 01 - [Arduino Nano shield](https://www.aliexpress.us/item/2251801857885983.html) (recomended, not required)
-* 01 - L298N Dual H-Bridge
-* 01 - Bluetooth HC-05
+* 01 - L298N Dual H-Bridge board
+* 01 - HC-05 Bluetooth module
 * 02 - Red Leds
 * 02 - White Leds
 * 01 - Passive Buzzer
 * 04 - 150 Ω Resistors
-* 01 - 1.0 KΩ Resistor
-* 01 - 3.3 Ω Resistor
+* 01 - 1.0K Ω Resistor
+* 01 - 3.3K Ω Resistor
 * 01 - 220 Ω Resistor
-* 02 - 18650 batteries
+* 02 - 18650 batteries (3.7v - 4.2v)
 * 01 - Battery support
 * 01 - SG90 Servo Motor
 * 01 - Electrolytic Capacitor 1000 μF (6.3v - 25v)
@@ -41,7 +41,7 @@ Note: the Electrolytic Capacitor is used to prevent Arduino Nano from rebooting 
 Platform IO is a plugin for Microsoft Virtual Studio Code. It is a more robust IDE compared to official Arduino IDE. It also allows us to easily create our own private libraries and use a more object oriented code.
 
 ## About Car Chassis
-This project was designed to have a servo motor steeting the front wheels:
+This project was designed to have a servo motor steering the front wheels:
 
 ## About the code
 The PINs can be customized in the `main.cpp` 
@@ -86,7 +86,7 @@ void setup()
     Serial.begin(9600);
     bluetooth.begin(9600);
 
-    servo.attach(PIN_SERVO);
+    servoMotor.attach();
 
     car.stop();
 }
@@ -100,7 +100,7 @@ void loop()
 }
 ```
 
-Fine tuned customizations can be done in the individual files like `ServoMotor.h`
+Fine-tuning customizations can be done in the individual files like `ServoMotor.h` for servo motor angle
 ```c++
 #ifndef SERVOMOTOR_H
 #define SERVOMOTOR_H
@@ -111,7 +111,7 @@ class ServoMotor
 {
 public:
   ServoMotor(Servo &servo, uint8_t pin);
- // void attach();
+  void attach();
   void turn(uint16_t angle);
   void turnLeft();
   void turnHalfLeft();
@@ -130,6 +130,36 @@ private:
 #endif
 ```
 
+or in the `DCMotor.h` for changing speed parameters
+```c++
+#ifndef DCMOTOR_H
+#define DCMOTOR_H
+#include <Arduino.h>
+
+class DCMotor
+{
+public:
+    DCMotor(uint8_t pinEn, uint8_t pinIn1, uint8_t pinIn2);
+    void backward(uint8_t speed = 100);
+    void forward(uint8_t speed = 100);
+    void setMinAbsSpeed(uint8_t absSpeed);
+    void stop();
+
+private:
+    uint8_t pinEn;
+    uint8_t pinIn1;
+    uint8_t pinIn2;
+    uint8_t absSpeed = 0;
+    uint8_t maxAbsSpeed = 255;
+    uint8_t minAbsSpeed = 50;
+    uint8_t ignoreAbsSpeed = 30;
+
+    void setSpeed(uint8_t speed);
+};
+
+#endif
+```
+
 ### Reference 1 (International):
 <img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/fc44181b-09c9-459d-bb90-3e725720ff7c" width="300">
 
@@ -143,5 +173,6 @@ https://www.usinainfo.com.br/kit-robotica/chassi-carrinho-arduino-mdf-com-eixo-m
 
 
 ## Fritzing file
+The eletronic schematic was created in the [Fritzing](https://fritzing.org/) software and can be downloaded at
 [BluetoohRcCar.zip](https://github.com/vitorccs/bluetooth-rc-car/files/12842007/BluetoohRcCar.zip)
 
