@@ -1,16 +1,20 @@
 # Bluetooth RC Car
 Bluetooth Remote Controlled Car using Arduino Nano board v3. 
 
-<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/d4cf7d09-89ce-4f19-b74a-7290a47bce9b" width="400">
+<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/60031705-4a53-4c39-bdf1-05cc43f558ee" width="400">
 
-<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/032b06c2-c130-4dad-81ca-7079a3e00abb" width="400">
+<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/9aadaa3e-0acc-4877-89ba-d906d369bbd6" width="400">
+
 
 ## Description
+![BluetoohRcCar_bb](https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/59007b70-5f79-485e-9169-ebc2b8112223)
+
 This is a [Platform IO IDE](https://platformio.org/platformio-ide) project coded in C++. 
 
 The car is controlled by a [free Android App](https://play.google.com/store/apps/details?id=braulio.calle.bluetoothRCcontroller&hl=en) (Bluettoh connection will appear as "HC-05"):
 
-![BluetoohRcCar_bb](https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/a932c96f-a2e9-4fb0-92e2-317c30f7adb8)
+<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/2e48be50-9498-443f-bc25-0eb4d572a016" width="300">
+
 Note: the Electrolytic Capacitor is used to prevent Arduino Nano from rebooting when DC Motors consume more current and causes a voltage drop.
 
 ## Components
@@ -127,12 +131,12 @@ private:
 ```
 
 ### Reference 1 (International):
-<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/5a65ca40-7e99-4db5-8cd8-4550874b3d62" width="300">
+<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/fc44181b-09c9-459d-bb90-3e725720ff7c" width="300">
 
 https://www.aliexpress.us/item/2251832846243463.html?channel=facebook
 
 ### Reference 2 (Brazil):
-<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/d42e3eee-127e-4b12-b4ab-0122fffeed5c" width="300">
+<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/6d2626ba-d2ef-4a6d-9c85-598381214e7b" width="300">
 
 https://www.usinainfo.com.br/kit-robotica/chassi-carrinho-arduino-mdf-com-eixo-movel-v2-manual-de-montagem-5532.html
 
