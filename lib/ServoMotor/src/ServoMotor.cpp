@@ -8,6 +8,11 @@ ServoMotor::ServoMotor(Servo &servo, uint8_t pin): _servo(servo)
     this->_servo = servo;
 }
 
+void ServoMotor::attach()
+{
+    this->_servo.attach(this->pin);
+}
+
 void ServoMotor::turn(uint16_t angle)
 {
     this->_servo.write(angle);

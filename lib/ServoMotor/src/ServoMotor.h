@@ -7,7 +7,7 @@ class ServoMotor
 {
 public:
   ServoMotor(Servo &servo, uint8_t pin);
- // void attach();
+  void attach();
   void turn(uint16_t angle);
   void turnLeft();
   void turnHalfLeft();

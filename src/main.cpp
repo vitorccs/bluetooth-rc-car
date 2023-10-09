@@ -38,7 +38,7 @@ void setup()
     Serial.begin(9600);
     bluetooth.begin(9600);
 
-    servo.attach(11);
+    servoMotor.attach();
 
     car.stop();
 }
