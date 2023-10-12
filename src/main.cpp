@@ -8,8 +8,8 @@
 #include <ServoMotor.h>
 #include <Servo.h>
 
-#define PIN_FLED A5 // converted to a Digital Port
-#define PIN_RLED A4 // converted to a Digital Port
+#define PIN_FLED 2
+#define PIN_RLED 3
 #define PIN_HORN 10
 #define PIN_M1_EN 5
 #define PIN_M1_IN1 4

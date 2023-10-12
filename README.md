@@ -7,7 +7,7 @@ Bluetooth Remote Controlled Car using Arduino Nano v3 board.
 
 
 ## Description
-![BluetoohRcCar_bb](https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/59007b70-5f79-485e-9169-ebc2b8112223)
+![BluetoohRcCar_bb](https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/60fc73ca-2db5-461e-8c95-fbbfbf855cb2)
 
 This is a [Platform IO IDE](https://platformio.org/platformio-ide) project coded in C++. 
 
@@ -56,8 +56,8 @@ The PINs can be customized in the `main.cpp`
 #include <ServoMotor.h>
 #include <Servo.h>
 
-#define PIN_FLED A5 // converted to a Digital Port
-#define PIN_RLED A4 // converted to a Digital Port
+#define PIN_FLED 2
+#define PIN_RLED 3
 #define PIN_HORN 10
 #define PIN_M1_EN 5
 #define PIN_M1_IN1 4
@@ -174,5 +174,5 @@ https://www.usinainfo.com.br/kit-robotica/chassi-carrinho-arduino-mdf-com-eixo-m
 
 ## Fritzing file
 The eletronic schematic was created in the [Fritzing](https://fritzing.org/) software and can be downloaded at
-[BluetoohRcCar.zip](https://github.com/vitorccs/bluetooth-rc-car/files/12842007/BluetoohRcCar.zip)
+[BluetoohRcCar.zip](https://github.com/vitorccs/bluetooth-rc-car/files/12884147/BluetoohRcCar.zip)
 
