@@ -13,7 +13,7 @@ This is a [Platform IO IDE](https://platformio.org/platformio-ide) project coded
 
 The car is controlled by a [free Android App](https://play.google.com/store/apps/details?id=braulio.calle.bluetoothRCcontroller&hl=en) (Bluetooth connection will appear as "HC-05"):
 
-<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/2e48be50-9498-443f-bc25-0eb4d572a016" width="300">
+<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/2e48be50-9498-443f-bc25-0eb4d572a016" width="400">
 
 Note: the Electrolytic Capacitor is used to prevent Arduino Nano from rebooting when DC Motors consume more current and causes a voltage drop.
 
@@ -39,9 +39,6 @@ Note: the Electrolytic Capacitor is used to prevent Arduino Nano from rebooting 
 
 ## About PlatformIO IDE
 Platform IO is a plugin for Microsoft Virtual Studio Code. It is a more robust IDE compared to official Arduino IDE. It also allows us to easily create our own private libraries and use a more object oriented code.
-
-## About Car Chassis
-This project was designed to have a servo motor steering the front wheels:
 
 ## About the code
 The PINs can be customized in the `main.cpp` 
@@ -159,6 +156,8 @@ private:
 
 #endif
 ```
+## About Car Chassis
+This project was designed to have a servo motor steering the front wheels:
 
 ### Reference 1 (International):
 <img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/fc44181b-09c9-459d-bb90-3e725720ff7c" width="300">
