@@ -39,7 +39,7 @@ void DCMotor::setSpeed(uint8_t speed)
         this->absSpeed = 0;
     }
 
-    if (this->absSpeed > 0 && absSpeed <= this->minAbsSpeed)
+    if (this->absSpeed > 0 && this->absSpeed <= this->minAbsSpeed)
     {
         this->absSpeed = minAbsSpeed;
     }
