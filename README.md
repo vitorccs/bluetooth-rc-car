@@ -1,17 +1,16 @@
 # Bluetooth RC Car
 Bluetooth Remote Controlled Car using Arduino Nano v3 board. 
 
-<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/60031705-4a53-4c39-bdf1-05cc43f558ee" width="400">
+<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/5bae8112-d705-4014-b8c7-6c5c0a61af01" width="400">
 
-<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/9aadaa3e-0acc-4877-89ba-d906d369bbd6" width="400">
-
+<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/1d36a884-911e-428b-8243-55fc6e3f2f87" width="400">
 
 ## Description
-![BluetoohRcCar_bb](https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/60fc73ca-2db5-461e-8c95-fbbfbf855cb2)
+![BluetoohRcCar_bb](https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/8548f769-204c-4ad2-923a-682ab65a5fe5)
 
 This is a [Platform IO IDE](https://platformio.org/platformio-ide) project coded in C++. 
 
-The car is controlled by a [free Android App](https://play.google.com/store/apps/details?id=braulio.calle.bluetoothRCcontroller&hl=en) (Bluetooth connection will appear as "HC-05"):
+The car is controlled by a [free Android App](https://play.google.com/store/apps/details?id=braulio.calle.bluetoothRCcontroller&hl=en) (Bluetooth connection is displayed as "HC-05"):
 
 <img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/2e48be50-9498-443f-bc25-0eb4d572a016" width="400">
 
@@ -35,7 +34,7 @@ Note: the Electrolytic Capacitor is used to prevent Arduino Nano from rebooting 
 * 02 - 18650 batteries (3.7v - 4.2v)
 * 01 - Battery support
 * 01 - SG90 Servo Motor
-* 01 - Electrolytic Capacitor 1000 μF (6.3v - 25v)
+* 02 - Electrolytic Capacitor 3300 μF (9v - 30v)
 
 ## About PlatformIO IDE
 Platform IO is a plugin for Microsoft Virtual Studio Code. It is a more robust IDE compared to official Arduino IDE. It also allows us to easily create our own private libraries and use a more object oriented code.
@@ -173,5 +172,5 @@ https://www.usinainfo.com.br/kit-robotica/chassi-carrinho-arduino-mdf-com-eixo-m
 
 ## Fritzing file
 The eletronic schematic was created in the [Fritzing](https://fritzing.org/) software and can be downloaded at
-[BluetoohRcCar.zip](https://github.com/vitorccs/bluetooth-rc-car/files/12884147/BluetoohRcCar.zip)
+[BluetoohRcCar.zip](https://github.com/vitorccs/bluetooth-rc-car/files/13717742/BluetoohRcCar.zip)
 
