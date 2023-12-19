@@ -155,6 +155,7 @@ private:
 
 #endif
 ```
+
 ## About Car Chassis
 This project was designed to have a servo motor steering the front wheels:
 
@@ -168,7 +169,8 @@ https://www.aliexpress.us/item/2251832846243463.html?channel=facebook
 
 https://www.usinainfo.com.br/kit-robotica/chassi-carrinho-arduino-mdf-com-eixo-movel-v2-manual-de-montagem-5532.html
 
-
+## About the Power Supply
+I recommend to use high quality 18650 batteries (3.7v - 4.2v, 2200mAh, at least 2C of discharge rate).
 
 ## Fritzing file
 The eletronic schematic was created in the [Fritzing](https://fritzing.org/) software and can be downloaded at
