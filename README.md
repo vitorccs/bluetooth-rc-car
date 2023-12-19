@@ -6,6 +6,8 @@ Bluetooth Remote Controlled Car using Arduino Nano v3 board.
 <img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/1d36a884-911e-428b-8243-55fc6e3f2f87" width="400">
 
 ## Recording
+Note: enable the sound by clicking on the speaker icon from the video toolbar
+
 https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/61ae4be5-daeb-4589-b032-a97652b8ac0d
 
 ## Description
