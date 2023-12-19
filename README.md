@@ -36,8 +36,8 @@ Note: the Electrolytic Capacitor is used to prevent Arduino Nano from rebooting 
 * 01 - 1.0K Ω Resistor
 * 01 - 3.3K Ω Resistor
 * 01 - 220 Ω Resistor
-* 02 - 18650 batteries (3.7v - 4.2v)
-* 01 - Battery support
+* 04 - 18650 batteries (3.7v - 4.2v)
+* 02 - Battery support
 * 01 - SG90 Servo Motor
 * 02 - Electrolytic Capacitor 3300 μF (9v - 50v)
 
