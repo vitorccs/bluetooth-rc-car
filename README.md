@@ -34,7 +34,7 @@ Note: the Electrolytic Capacitor is used to prevent Arduino Nano from rebooting 
 * 02 - 18650 batteries (3.7v - 4.2v)
 * 01 - Battery support
 * 01 - SG90 Servo Motor
-* 02 - Electrolytic Capacitor 3300 μF (9v - 30v)
+* 02 - Electrolytic Capacitor 3300 μF (9v - 50v)
 
 ## About PlatformIO IDE
 Platform IO is a plugin for Microsoft Virtual Studio Code. It is a more robust IDE compared to official Arduino IDE. It also allows us to easily create our own private libraries and use a more object oriented code.
