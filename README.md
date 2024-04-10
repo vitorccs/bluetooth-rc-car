@@ -1,25 +1,28 @@
 # Bluetooth RC Car
 Bluetooth Remote Controlled Car using Arduino Nano v3 board. 
 
-<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/5bae8112-d705-4014-b8c7-6c5c0a61af01" width="400">
+<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/c28659e8-4a21-4e9c-bf2e-5e1d1da0a0b4" width="400">
 
-<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/1d36a884-911e-428b-8243-55fc6e3f2f87" width="400">
+<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/e116b1a2-e75f-4761-9fa6-8965506df705" width="400">
+
 
 ## Recording
 Note: enable the sound by clicking on the speaker icon from the video toolbar
 
-https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/61ae4be5-daeb-4589-b032-a97652b8ac0d
+https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/efb802f3-5028-4678-acb2-5a2afc2f12f7
 
-## Description
-![BluetoohRcCar_bb](https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/eb49cb2b-e568-47d0-bb29-92d1601d65d5)
-
+## Schematics
 This is a [Platform IO IDE](https://platformio.org/platformio-ide) project coded in C++. 
 
-The car is controlled by a [free Android App](https://play.google.com/store/apps/details?id=braulio.calle.bluetoothRCcontroller&hl=en) (Bluetooth connection is displayed as "HC-05"):
+![BluetoohRcCar_v2_bb](https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/789f0efb-618e-4cf4-9fb9-bea874837210)
 
-<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/2e48be50-9498-443f-bc25-0eb4d572a016" width="400">
 
-Note: the Electrolytic Capacitor is used to prevent Arduino Nano from rebooting when DC Motors consume more current and causes a voltage drop.
+## Bluetooth controller
+The car is controlled by a [free Android App](https://play.google.com/store/apps/details?id=com.electro_tex.bluetoothcar&pcampaignid=web_share) (Bluetooth connection is displayed as "HC-05"):
+<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/93d25180-f532-4717-aa7c-2c25e38c2414" width="500">
+
+Once installed the app, map the buttons code as shown below:
+<img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/4e0d08ae-a4e4-4613-90cf-5a586280fb27" width="500">
 
 ## Components
 * 01 - 4WD Car Chassis with steering (see section below)
@@ -36,10 +39,10 @@ Note: the Electrolytic Capacitor is used to prevent Arduino Nano from rebooting 
 * 01 - 1.0K Ω Resistor
 * 01 - 3.3K Ω Resistor
 * 01 - 220 Ω Resistor
-* 04 - 18650 batteries (3.7v - 4.2v)
+* 03 - 18650 batteries (3.7v - 4.2v)
 * 02 - Battery support
 * 01 - SG90 Servo Motor
-* 02 - Electrolytic Capacitor 3300 μF (9v - 50v)
+* 02 - Electrolytic Capacitor 6800 μF (9v - 50v)
 
 ## About PlatformIO IDE
 Platform IO is a plugin for Microsoft Virtual Studio Code. It is a more robust IDE compared to official Arduino IDE. It also allows us to easily create our own private libraries and use a more object oriented code.
@@ -56,6 +59,7 @@ The PINs can be customized in the `main.cpp`
 #include <SoftwareSerial.h>
 #include <ServoMotor.h>
 #include <Servo.h>
+#include <SerialReader.h>
 
 #define PIN_FLED 2
 #define PIN_RLED 3
@@ -81,6 +85,7 @@ ServoMotor servoMotor(servo, PIN_SERVO);
 Car car(motor1, motor2, fLed, rLed, servoMotor, horn);
 SoftwareSerial bluetooth(PIN_BLUETOOTH_TX, PIN_BLUETOOTH_RX);
 BluetoothJoyHandler joyHandler(car);
+SerialReader serialReader;
 
 void setup()
 {
@@ -88,15 +93,18 @@ void setup()
     bluetooth.begin(9600);
 
     servoMotor.attach();
+    
+    joyHandler.setDebug(false);
 
     car.stop();
+    car.setMaxSpeed();
 }
 
 void loop()
 {
-    if (bluetooth.available() > 0)
-    {
-        joyHandler.handle(bluetooth.read());
+    String command = serialReader.read(bluetooth);
+    if (command != "") {
+        joyHandler.handle(command);
     }
 }
 ```
@@ -175,9 +183,14 @@ https://www.aliexpress.us/item/2251832846243463.html?channel=facebook
 https://www.usinainfo.com.br/kit-robotica/chassi-carrinho-arduino-mdf-com-eixo-movel-v2-manual-de-montagem-5532.html
 
 ## About the Power Supply
-I recommend to use high quality 18650 batteries (3.7v - 4.2v, 2200mAh, at least 2C of discharge rate).
+I recommend to use high quality 18650 batteries (3.7v - 4.2v, 2200mAh, at least 2C of discharge rate). 
+
+Most people prefer to use different power sources for Arduino (5v) and Bridge driver (6 - 35v). 
+
+I preferred to have a single power source and thus a single power switch. However, it was required to use huge Electrolytic Capacitors (around 12,0µF) to prevent Arduino Nano from rebooting when the bridge drains too much power and also to filter the electric noise.
+
+It is up to you!
 
 ## Fritzing file
 The eletronic schematic was created in the [Fritzing](https://fritzing.org/) software and can be downloaded at
-[BluetoohRcCar.zip](https://github.com/vitorccs/bluetooth-rc-car/files/13717985/BluetoohRcCar.zip)
-
+[BluetoohRcCar_v2.zip](https://github.com/vitorccs/bluetooth-rc-car/files/14926557/BluetoohRcCar_v2.zip)
