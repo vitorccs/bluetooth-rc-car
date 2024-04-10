@@ -9,7 +9,8 @@ Bluetooth Remote Controlled Car using Arduino Nano v3 board.
 ## Recording
 Note: enable the sound by clicking on the speaker icon from the video toolbar
 
-https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/efb802f3-5028-4678-acb2-5a2afc2f12f7
+
+https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/5b10d8bd-b947-42eb-8aeb-4d8697c9ae02
 
 ## Schematics
 This is a [Platform IO IDE](https://platformio.org/platformio-ide) project coded in C++. 
