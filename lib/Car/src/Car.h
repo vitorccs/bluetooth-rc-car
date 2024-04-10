@@ -24,11 +24,15 @@ public:
     void forwardRight();
     void frontLightsOn();
     void frontLightsOff();
+    void frontLightsToggle();
     void rearLightsOn();
     void rearLightsOff();
+    void rearLightsToggle();
     void playHorn();
+    void playHornOnce();
     void setMinAbsSpeed(uint8_t absSpeed);
     void setSpeed(uint8_t speed);
+    void setMaxSpeed();
     void stop();
     void stopHorn();
     void turnLeft();
@@ -42,7 +46,8 @@ private:
     DigitalLed rearLed;
     ServoMotor servoMotor;
     PassiveBuzzer frontHorn;
-    uint16_t frontHornFreq = 500;
+    uint16_t frontHornFreq = 400;
+    uint16_t frontHornDur = 1000;
 
     void motorBackward();
     void motorForward();

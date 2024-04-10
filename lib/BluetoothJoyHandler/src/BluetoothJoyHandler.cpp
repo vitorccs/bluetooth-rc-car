@@ -7,13 +7,16 @@ BluetoothJoyHandler::BluetoothJoyHandler(Car &car) : _car(car)
     _car = car;
 }
 
-void BluetoothJoyHandler::handle(int incomingByte)
+void BluetoothJoyHandler::handle(String command)
 {
     _car.stop();
 
-    debugMovement(incomingByte);
+    debugMovement(command);
 
-    switch (incomingByte)
+    char keyCode = command[0];
+    String keyValue = command.substring(1);
+    
+    switch (keyCode)
     {
     case 'F':
         _car.forward();
@@ -42,56 +45,17 @@ void BluetoothJoyHandler::handle(int incomingByte)
     case 'S':
         _car.stop();
         break;
-    case 'U':
-        _car.rearLightsOn();
-        break;
-    case 'u':
-        _car.rearLightsOff();
-        break;
-    case 'V':
-        _car.playHorn();
-        break;
-    case 'v':
-        _car.stopHorn();
-        break;
     case 'W':
-        _car.frontLightsOn();
+        _car.frontLightsToggle();
         break;
-    case 'w':
-        _car.frontLightsOff();
+    case 'U':
+        _car.rearLightsToggle();
         break;
-    case '0':
-        _car.setSpeed(0);
+    case 'X':
+        _car.playHornOnce();
         break;
-    case '1':
-        _car.setSpeed(10);
-        break;
-    case '2':
-        _car.setSpeed(20);
-        break;
-    case '3':
-        _car.setSpeed(30);
-        break;
-    case '4':
-        _car.setSpeed(40);
-        break;
-    case '5':
-        _car.setSpeed(50);
-        break;
-    case '6':
-        _car.setSpeed(60);
-        break;
-    case '7':
-        _car.setSpeed(70);
-        break;
-    case '8':
-        _car.setSpeed(80);
-        break;
-    case '9':
-        _car.setSpeed(90);
-        break;
-    case 'q':
-        _car.setSpeed(100);
+    case 'M':
+        _car.setSpeed(keyValue.toInt());
         break;
     }
 }
@@ -101,7 +65,7 @@ void BluetoothJoyHandler::setDebug(bool enable)
     this->debug = enable;
 }
 
-void BluetoothJoyHandler::debugMovement(int incomingByte)
+void BluetoothJoyHandler::debugMovement(String command)
 {
     if (!this->debug)
     {
@@ -109,5 +73,5 @@ void BluetoothJoyHandler::debugMovement(int incomingByte)
     }
 
     Serial.print("Received: ");
-    Serial.println(incomingByte);
+    Serial.println(command);
 }

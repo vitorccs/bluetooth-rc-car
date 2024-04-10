@@ -3,18 +3,22 @@
 
 PassiveBuzzer::PassiveBuzzer(uint8_t pin)
 {
-    this->pin = pin;    
+    this->pin = pin;
     pinMode(this->pin, OUTPUT);
 }
 
-void PassiveBuzzer::play(uint16_t frequency) {
+void PassiveBuzzer::play(uint16_t frequency)
+{
     tone(this->pin, frequency);
 }
 
-void PassiveBuzzer::playOnce(unsigned long duration, uint16_t frequency) {
+void PassiveBuzzer::playOnce(unsigned long duration, uint16_t frequency)
+{
+    this->stop();
     tone(this->pin, frequency, duration);
 }
 
-void PassiveBuzzer::stop() {
+void PassiveBuzzer::stop()
+{
     noTone(this->pin);
 }
