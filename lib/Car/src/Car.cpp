@@ -68,6 +68,11 @@ void Car::setSpeed(uint8_t speed)
     this->speed = speed;
 }
 
+void Car::setMaxSpeed()
+{
+    this->speed = 100;
+}
+
 void Car::frontLightsOn()
 {
     this->frontLed.turnOn();
@@ -76,6 +81,11 @@ void Car::frontLightsOn()
 void Car::frontLightsOff()
 {
     this->frontLed.turnOff();
+}
+
+void Car::frontLightsToggle()
+{
+    this->frontLed.toggle();
 }
 
 void Car::motorBackward()
@@ -100,9 +110,19 @@ void Car::rearLightsOff()
     this->rearLed.turnOff();
 }
 
+void Car::rearLightsToggle()
+{
+    this->rearLed.toggle();
+}
+
 void Car::playHorn()
 {
     this->frontHorn.play(this->frontHornFreq);
+}
+
+void Car::playHornOnce()
+{
+    this->frontHorn.playOnce(this->frontHornDur, this->frontHornFreq);
 }
 
 void Car::stopHorn()

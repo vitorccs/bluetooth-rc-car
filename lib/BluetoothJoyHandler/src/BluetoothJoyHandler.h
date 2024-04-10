@@ -6,12 +6,12 @@
 class BluetoothJoyHandler {
 public:
     BluetoothJoyHandler(Car &car);
-    void handle(int incomingByte);
+    void handle(String command);
     void setDebug(bool enable);
 private:
     Car &_car;
     bool debug = false;
-    void debugMovement(int incomingByte);
+    void debugMovement(String command);
 };
 
 #endif

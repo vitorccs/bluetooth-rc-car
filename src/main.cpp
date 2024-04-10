@@ -7,6 +7,7 @@
 #include <SoftwareSerial.h>
 #include <ServoMotor.h>
 #include <Servo.h>
+#include <SerialReader.h>
 
 #define PIN_FLED 2
 #define PIN_RLED 3
@@ -32,6 +33,7 @@ ServoMotor servoMotor(servo, PIN_SERVO);
 Car car(motor1, motor2, fLed, rLed, servoMotor, horn);
 SoftwareSerial bluetooth(PIN_BLUETOOTH_TX, PIN_BLUETOOTH_RX);
 BluetoothJoyHandler joyHandler(car);
+SerialReader serialReader;
 
 void setup()
 {
@@ -39,14 +41,17 @@ void setup()
     bluetooth.begin(9600);
 
     servoMotor.attach();
+    
+    joyHandler.setDebug(false);
 
     car.stop();
+    car.setMaxSpeed();
 }
 
 void loop()
 {
-    if (bluetooth.available() > 0)
-    {
-        joyHandler.handle(bluetooth.read());
+    String command = serialReader.read(bluetooth);
+    if (command != "") {
+        joyHandler.handle(command);
     }
 }
