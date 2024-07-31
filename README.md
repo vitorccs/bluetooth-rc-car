@@ -15,7 +15,7 @@ https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/5b10d8bd-b947-42eb-8
 ## Schematics
 This is a [Platform IO IDE](https://platformio.org/platformio-ide) project coded in C++. 
 
-![BluetoohRcCar_v2_bb](https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/789f0efb-618e-4cf4-9fb9-bea874837210)
+![BluetoothRcCar_v2_bb](https://github.com/user-attachments/assets/acadc047-9f56-48bd-a09e-f9d66b7dd924)
 
 
 ## Bluetooth controller
@@ -23,6 +23,7 @@ The car is controlled by a [free Android App](https://play.google.com/store/apps
 <img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/93d25180-f532-4717-aa7c-2c25e38c2414" width="500">
 
 Once installed the app, map the buttons code as shown below:
+
 <img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/4e0d08ae-a4e4-4613-90cf-5a586280fb27" width="500">
 
 ## Components
@@ -194,4 +195,5 @@ It is up to you!
 
 ## Fritzing file
 The eletronic schematic was created in the [Fritzing](https://fritzing.org/) software and can be downloaded at
-[BluetoohRcCar_v2.zip](https://github.com/vitorccs/bluetooth-rc-car/files/14926557/BluetoohRcCar_v2.zip)
+
+[BluetoothRcCar_v2.zip](https://github.com/user-attachments/files/16436080/BluetoothRcCar_v2.zip)
