@@ -20,22 +20,22 @@ void ServoMotor::turn(uint16_t angle)
 
 void ServoMotor::turnLeft()
 {
-    this->_servo.write(this->angleReset + this->angleFull);
+    this->_servo.write(this->angleReset + this->angleFull + this->leftOffset);
 }
 
 void ServoMotor::turnHalfLeft()
 {
-    this->_servo.write(this->angleReset + this->angleHalf);
+    this->_servo.write(this->angleReset + this->angleHalf + this->leftOffset);
 }
 
 void ServoMotor::turnRight()
 {
-    this->_servo.write(this->angleReset - this->angleFull);
+    this->_servo.write(this->angleReset - this->angleFull - this->rightOffset);
 }
 
 void ServoMotor::turnHalfRight()
 {
-   this->_servo.write(this->angleReset - this->angleHalf);
+   this->_servo.write(this->angleReset - this->angleHalf - this->rightOffset);
 }
 
 void ServoMotor::reset()

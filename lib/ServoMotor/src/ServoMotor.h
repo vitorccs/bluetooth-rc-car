@@ -21,6 +21,8 @@ private:
   uint8_t angleReset = 90;
   uint8_t angleFull = 25;
   uint8_t angleHalf = 15;
+  uint8_t leftOffset = 0;
+  uint8_t rightOffset = 9;
 };
 
 #endif
