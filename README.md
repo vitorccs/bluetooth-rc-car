@@ -42,9 +42,9 @@ Once installed the app, map the buttons code as shown below:
 * 01 - 3.3K Ω Resistor
 * 01 - 220 Ω Resistor
 * 02 - 18650 batteries (3.7v - 4.2v)
-* 02 - Battery support
+* 01 - Battery support
 * 01 - SG90 Servo Motor
-* 02 - Electrolytic Capacitor 6800 μF (9v - 50v)
+* 02 - Electrolytic Capacitor 6800 μF (16v - 50v)
 
 NOTES:
 * You can also use TB6612FNG as H-Bridge, a modern MOSFET driver with about 90% energy efficiency versus 40-70% for the L298N
