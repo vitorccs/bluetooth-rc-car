@@ -15,7 +15,7 @@ https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/5b10d8bd-b947-42eb-8
 ## Schematics
 This is a [Platform IO IDE](https://platformio.org/platformio-ide) project coded in C++. 
 
-![BluetoothRcCar_v2_bb](https://github.com/user-attachments/assets/acadc047-9f56-48bd-a09e-f9d66b7dd924)
+![BluetoothRcCar_v3_bb](https://github.com/user-attachments/assets/a84d260e-dfef-4970-a6aa-2d521dc71ecb)
 
 
 ## Bluetooth controller
@@ -41,10 +41,14 @@ Once installed the app, map the buttons code as shown below:
 * 01 - 1.0K Ω Resistor
 * 01 - 3.3K Ω Resistor
 * 01 - 220 Ω Resistor
-* 03 - 18650 batteries (3.7v - 4.2v)
+* 02 - 18650 batteries (3.7v - 4.2v)
 * 02 - Battery support
 * 01 - SG90 Servo Motor
 * 02 - Electrolytic Capacitor 6800 μF (9v - 50v)
+
+NOTES:
+* You can also use TB6612FNG as H-Bridge, a modern MOSFET driver with about 90% energy efficiency versus 40-70% for the L298N
+* You can increase car speed by adding an extra 18650 battery
 
 ## About PlatformIO IDE
 Platform IO is a plugin for Microsoft Virtual Studio Code. It is a more robust IDE compared to official Arduino IDE. It also allows us to easily create our own private libraries and use a more object oriented code.
@@ -69,12 +73,12 @@ The PINs can be customized in the `main.cpp`
 #define PIN_M1_EN 5
 #define PIN_M1_IN1 4
 #define PIN_M1_IN2 6
-#define PIN_M2_EN 9
+#define PIN_M2_EN 11
 #define PIN_M2_IN1 7
 #define PIN_M2_IN2 8
 #define PIN_BLUETOOTH_TX 12
 #define PIN_BLUETOOTH_RX 13
-#define PIN_SERVO 11
+#define PIN_SERVO 9
 #define MIN_MOTOR_SPEED 80 // (between 0 to 255)
 
 DigitalLed fLed(PIN_FLED);
@@ -185,15 +189,21 @@ https://www.aliexpress.us/item/2251832846243463.html?channel=facebook
 https://www.usinainfo.com.br/kit-robotica/chassi-carrinho-arduino-mdf-com-eixo-movel-v2-manual-de-montagem-5532.html
 
 ## About the Power Supply
-I recommend to use high quality 18650 batteries (3.7v - 4.2v, 2200mAh, at least 2C of discharge rate). 
+I recommend to use high quality 18650 batteries (3.7v - 4.2v, 2200mAh, at least 2C of discharge rate).
 
 Most people prefer to use different power sources for Arduino (5v) and Bridge driver (6 - 35v). 
 
-I preferred to have a single power source and thus a single power switch. However, it was required to use huge Electrolytic Capacitors (around 12,0µF) to prevent Arduino Nano from rebooting when the bridge drains too much power and also to filter the electric noise.
+I preferred to have a single power source and thus a single power switch. However, it was required to use huge Electrolytic Capacitors (around 12,000µF) to prevent Arduino Nano from rebooting when the bridge drains too much power and also to filter the electric noise.
 
 It is up to you!
+
+## About the Servo Motor
+Be careful if you need to change PINs of PWM motors (`PIN_M1_EN` and `PIN_M2_EN`) and Servo (`PIN_SERVO`) since they cannot use the same Arduino timers.
+* [Discussion in Arduino forum](https://forum.arduino.cc/t/problem-using-both-a-dc-motor-and-servo/1172917/13)
+* [Arduino timers](https://devboards.info/boards/arduino-nano)
+
 
 ## Fritzing file
 The eletronic schematic was created in the [Fritzing](https://fritzing.org/) software and can be downloaded at
 
-[BluetoothRcCar_v2.zip](https://github.com/user-attachments/files/16436080/BluetoothRcCar_v2.zip)
+[BluetoothRcCar_v3.zip](https://github.com/user-attachments/files/16517847/BluetoothRcCar_v3.zip)

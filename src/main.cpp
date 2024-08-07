@@ -15,12 +15,12 @@
 #define PIN_M1_EN 5
 #define PIN_M1_IN1 4
 #define PIN_M1_IN2 6
-#define PIN_M2_EN 9
+#define PIN_M2_EN 11
 #define PIN_M2_IN1 7
 #define PIN_M2_IN2 8
 #define PIN_BLUETOOTH_TX 12
 #define PIN_BLUETOOTH_RX 13
-#define PIN_SERVO 11
+#define PIN_SERVO 9
 #define MIN_MOTOR_SPEED 80 // (between 0 to 255)
 
 DigitalLed fLed(PIN_FLED);
