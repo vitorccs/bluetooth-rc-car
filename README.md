@@ -1,9 +1,15 @@
 # Bluetooth RC Car
 Bluetooth Remote Controlled Car using Arduino Nano v3 board. 
 
+### With L298N
 <img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/c28659e8-4a21-4e9c-bf2e-5e1d1da0a0b4" width="400">
-
 <img src="https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/e116b1a2-e75f-4761-9fa6-8965506df705" width="400">
+
+
+### With TB6612
+<img src="https://github.com/user-attachments/assets/cda28964-eac3-42a7-b827-6afe16038648" width="400">
+<img src="https://github.com/user-attachments/assets/e38299ee-232a-4ff2-bb93-2c9300f9c3e6" width="400">
+<img src="https://github.com/user-attachments/assets/4210b2ed-b348-43b5-9183-4a7eaa3fb84a" width="400">
 
 
 ## Recording
@@ -15,8 +21,11 @@ https://github.com/vitorccs/bluetooth-rc-car/assets/9891961/5b10d8bd-b947-42eb-8
 ## Schematics
 This is a [Platform IO IDE](https://platformio.org/platformio-ide) project coded in C++. 
 
-![BluetoothRcCar_v3_bb](https://github.com/user-attachments/assets/a84d260e-dfef-4970-a6aa-2d521dc71ecb)
+**Option 1 - With L298N Bridge**
+![BluetoothRcCar_v3_bb](https://github.com/user-attachments/assets/c2713088-d060-4d4e-9204-1f152b5e2678)
 
+**Option 2 - With TB6612 Bridge**
+![BluetoothRcCar_v4_bb](https://github.com/user-attachments/assets/3e0a637f-aece-4e74-9ba7-0b198681f454)
 
 ## Bluetooth controller
 The car is controlled by a [free Android App](https://play.google.com/store/apps/details?id=com.electro_tex.bluetoothcar&pcampaignid=web_share) (Bluetooth connection is displayed as "HC-05"):
@@ -32,7 +41,7 @@ Once installed the app, map the buttons code as shown below:
 * 04 - Wheels
 * 01 - Arduino Nano v3
 * 01 - [Arduino Nano shield](https://www.aliexpress.us/item/2251801857885983.html) (recomended, not required)
-* 01 - L298N Dual H-Bridge board
+* 01 - Dual H-Bridge board (L298N or TB6612FNG)
 * 01 - HC-05 Bluetooth module
 * 02 - Red Leds
 * 02 - White Leds
@@ -44,10 +53,10 @@ Once installed the app, map the buttons code as shown below:
 * 02 - 18650 batteries (3.7v - 4.2v)
 * 01 - Battery support
 * 01 - SG90 Servo Motor
-* 02 - Electrolytic Capacitor 6800 μF (16v - 50v)
+* 02 - Electrolytic Capacitor (16v - 50v, 12,000 - 20,000 μF)
 
 NOTES:
-* You can also use TB6612FNG as H-Bridge, a modern MOSFET driver with about 90% energy efficiency versus 40-70% for the L298N
+* TB6612FNG is a modern MOSFET driver with about 90% energy efficiency versus 40-70% for the L298N
 * You can increase car speed by adding an extra 18650 battery
 
 ## About PlatformIO IDE
@@ -193,7 +202,7 @@ I recommend to use high quality 18650 batteries (3.7v - 4.2v, 2200mAh, at least 
 
 Most people prefer to use different power sources for Arduino (5v) and Bridge driver (6 - 35v). 
 
-I preferred to have a single power source and thus a single power switch. However, it was required to use huge Electrolytic Capacitors (around 12,000µF) to prevent Arduino Nano from rebooting when the bridge drains too much power and also to filter the electric noise.
+I preferred to have a single power source and thus a single power switch. However, it was required to use huge Electrolytic Capacitors (around 12,000 to 20,000µF) to prevent Arduino Nano from rebooting when the bridge drains too much power and also to filter the electric noise.
 
 It is up to you!
 
@@ -205,5 +214,5 @@ Be careful if you need to change PINs of PWM motors (`PIN_M1_EN` and `PIN_M2_EN`
 
 ## Fritzing file
 The eletronic schematic was created in the [Fritzing](https://fritzing.org/) software and can be downloaded at
-
-[BluetoothRcCar_v3.zip](https://github.com/user-attachments/files/16517847/BluetoothRcCar_v3.zip)
+* [BluetoothRcCar_L298N.zip](https://github.com/user-attachments/files/16614584/BluetoothRcCar_v3.zip)
+* [BluetoothRcCar_TB6612.zip](https://github.com/user-attachments/files/16614585/BluetoothRcCar_v4.zip)
