@@ -9,8 +9,6 @@ BluetoothJoyHandler::BluetoothJoyHandler(Car &car) : _car(car)
 
 void BluetoothJoyHandler::handle(String command)
 {
-    _car.stop();
-
     debugMovement(command);
 
     char keyCode = command[0];
